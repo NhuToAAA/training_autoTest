@@ -15,7 +15,7 @@ describe('Testing Table with Cypress', ()=> {
     searchI.getIframeTag().click();
     SearchI('Selenium');
     searchI.getIframe().within(() => {
-        cy.xpath('//div[@class="twelve columns"]/ol/li[1]/div[@class="post_item"]/h3/a').click();
+        searchI.getArticle().click();
     })
   })
 })

@@ -1,36 +1,33 @@
 /// <reference types="cypress" />
+import Login, {LoginInternal, WriteFile} from '../../support/PageObject/Login/Login'
 
 require('cypress-xpath')
 describe('Check whether the writing to file and verify the json data', ()=> {
-var testdata;
-  var datapath = '/option';
+  var testdata;
+  var testdataOption;
+  var datapathAccount = '/account';
+  var datapathOption = '/option';
   before(function () {
-    cy.fixture(datapath).then(function (optionJsonFile) {
-      testdata = optionJsonFile;
+    cy.fixture(datapathAccount).then(function (accoutJsonFile) {
+      testdata = accoutJsonFile;
+    })
+    cy.fixture(datapathOption).then(function (optionJsonFile) {
+      testdataOption = optionJsonFile;
     })
   })
   beforeEach(()=>{
+    var account = testdata[0];
     cy.visit('https://www.saucedemo.com/ ');
-    cy.xpath('//input[@placeholder="Username"]').type('standard_user');
-    cy.xpath('//input[@placeholder="Password"]').type('secret_sauce');
-    cy.xpath('//input[@id="login-button"]').click();
+    LoginInternal(account.username, account.password);
+    
   })
-
   it('Write file', () => {
-     cy.get('[data-test="product_sort_container"]').select('Name (A to Z)').should('have.value', 'az');
-     var array = [];
-     cy.get('option').each(element => {
-        array.push({
-            value : element.val(),
-            option:  element.text()
-        })
-        cy.log("array", array[0])
-    }); 
-    cy.writeFile('cypress/fixtures/option.json', array)
+    WriteFile();
   })
   it('Read file', () => {
-    var option = testdata[2];
-    cy.get('[data-test="product_sort_container"]').select(option.option);
+    var login = new Login();
+    var option = testdataOption[2];
+    login.getSelect().select(option.option);
  })
 })
 

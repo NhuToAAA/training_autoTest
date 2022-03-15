@@ -12,6 +12,9 @@ class SearchIframe {
     getSummitButton() {
         return cy.xpath('//button[@class="button_search"]');
     }
+    getArticle () {
+        return cy.xpath('//li[1]/div[@class="post_item"]/h3/a');
+    }
 }
 export default SearchIframe;
 export function SearchI(keyword) {
