@@ -1,6 +1,6 @@
 require('cypress-xpath')
 
-class loginPage {
+class LoginPage {
     //get Username textbox on page login
     getUserTextbox () {
         return cy.xpath('//input[@placeholder="Username"]');
@@ -14,16 +14,16 @@ class loginPage {
         return cy.xpath('//input[@id="login-button"]');
     }
 }
-export default loginPage;
+export default LoginPage;
 
 /**
- * 
+ * function login with username and password
  * @param {string} user 
  * @param {string} password
  *  
  */
-export function LoginInternal(user, password) {
-    const LoginI = new loginPage();
+export function loginInternal(user, password) {
+    const LoginI = new LoginPage();
     // input username
     LoginI.getUserTextbox()
         .clear()

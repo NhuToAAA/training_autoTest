@@ -1,6 +1,6 @@
 require('cypress-xpath')
 
-class inventoryPage {
+class InventoryPage {
     // get dropdown select option 
     getSelectDropdownOption () {
         return cy.get('[data-test="product_sort_container"]');
@@ -10,11 +10,13 @@ class inventoryPage {
        return cy.xpath('//select[@data-test="product_sort_container"]/option');
     }
 }
-export default inventoryPage;
+export default InventoryPage;
 
-
-export function WriteFileNew () {
-    var invenPage = new inventoryPage();
+/**
+ * funciton write Exsit
+ */
+export function writeFileExsit () {
+    var invenPage = new InventoryPage();
     var array = [];
     // for loop each option 
     invenPage.getValueOfOption().each(element => {
@@ -24,11 +26,18 @@ export function WriteFileNew () {
            option:  element.text()
        })
    }); 
-   // write file into file option.js
-   cy.writeFile('cypress/fixtures/option.json', array);
+   cy.readFile('cypress/fixtures/optionExsit.json', 'utf8').then((data) =>{
+     data = data.concat(array)
+    // write file into file optionExsit.js
+    cy.writeFile('cypress/fixtures/optionExsit.json', data);
+       })
 }
-export function WriteFileExsit () {
-    var invenPage = new inventoryPage();
+
+/**
+ * function write new
+ */
+export function writeFileNew () {
+    var invenPage = new InventoryPage();
     var array = [];
     // for loop each option 
     invenPage.getValueOfOption().each(element => {
@@ -38,6 +47,6 @@ export function WriteFileExsit () {
            option:  element.text()
        })
    }); 
-   // write file into file option.js
-   cy.writeFile('cypress/fixtures/example.json', array , {flag: 'a+'});
+   // write file into file optionNew.js
+   cy.writeFile('cypress/fixtures/optionNew.json', array);
 }

@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import Search, {SearchFirstname} from '../../support/PageObject/Search/SearchForFirstname'
+import Search, {searchFirstname} from '../../support/PageObject/Search/SearchForFirstname'
 require('cypress-xpath')
 
 
@@ -19,9 +19,13 @@ describe('Testing Table with Cypress', ()=> {
 
   it('TC_001_VerifyThatUser', () => {
     var keywordList = testData[0];
-    SearchFirstname(keywordList.keyword);
-    // cy.xpath('//table[@class="table table-striped"]//tbody').each($td => {
-    //   cy.xpath('//td[1]').contains('Pol').should('be.visible');
+    searchFirstname(keywordList.keyword)
+    // .then(() => {
+    //   cy.get('body > div.table-container > table > tbody > tr').each((element) => {
+    //     // cy.xpath('//td[1]').contains('Pol').should('be.visible');
+    //     console.log("linh",element)
+    //   })
     // })
+    
   })
 })

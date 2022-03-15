@@ -1,6 +1,6 @@
 require('cypress-xpath')
 
-class logOutPage {
+class LogOutPage {
     //get dropdown have logout
     getDropdownLogout () {
         return cy.xpath('//button[@id="react-burger-menu-btn"]');
@@ -10,16 +10,16 @@ class logOutPage {
         return cy.xpath('//a').contains('Logout');
     }
 }
-export default logOutPage;
+export default LogOutPage;
 
 /**
- * 
+ * function logout
  * @param {string} user 
  * @param {string} password
  *  
  */
-export function Logout(user, password) {
-    const Logout = new logOutPage();
+export function logout(user, password) {
+    const Logout = new LogOutPage();
     // click dropdown have logout
     Logout.getDropdownLogout()
         .click();

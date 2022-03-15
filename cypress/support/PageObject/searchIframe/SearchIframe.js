@@ -1,6 +1,6 @@
 require('cypress-xpath')
 
-class searchIframe {
+class SearchIframePage {
     // get iframe tag on home page
     getIframeTag() {
         return cy.xpath('//li[@id="iFrame"]');
@@ -22,14 +22,14 @@ class searchIframe {
         return cy.xpath('//li[1]/div[@class="post_item"]/h3/a');
     }
 }
-export default searchIframe;
+export default SearchIframePage;
 
 /**
- * 
+ * function search in iframe with keywords
  * @param {string} keyword 
  */
-export function SearchI(keyword) {
-    const searchI = new searchIframe();
+export function searchI(keyword) {
+    const searchI = new SearchIframePage();
     searchI.getIframe().within(() => {
         // input keyword search textbox in iframe 
         searchI.getSearchTextbox()

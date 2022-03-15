@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import SearchIframe, {SearchI} from '../../support/PageObject/searchIframe/SearchIframe'
+import SearchIframePage, {searchI} from '../../support/PageObject/searchIframe/SearchIframe'
 require('cypress-xpath')
 
 describe('Testing Table with Cypress', ()=> {
@@ -13,11 +13,11 @@ describe('Testing Table with Cypress', ()=> {
   })
 
   it('TC_001_VerifyShouldContain', () => {
-    var searchI = new SearchIframe();
-    searchI.getIframeTag().click();
-    SearchI('Selenium');
-    searchI.getIframe().within(() => {
-        searchI.getArticle().click();
+    var searchIP = new SearchIframePage();
+    searchIP.getIframeTag().click();
+    searchI('Selenium');
+    searchIP.getIframe().within(() => {
+      searchIP.getArticle().click();
     })
   })
 })
