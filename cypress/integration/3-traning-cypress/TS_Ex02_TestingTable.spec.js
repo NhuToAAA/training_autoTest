@@ -19,13 +19,6 @@ describe('Testing Table with Cypress', ()=> {
 
   it('TC_001_VerifyThatUser', () => {
     var keywordList = testData[0];
-    searchFirstname(keywordList.keyword)
-    // .then(() => {
-    //   cy.get('body > div.table-container > table > tbody > tr').each((element) => {
-    //     // cy.xpath('//td[1]').contains('Pol').should('be.visible');
-    //     console.log("linh",element)
-    //   })
-    // })
-    
+    searchFirstname(keywordList.keyword) 
   })
 })
