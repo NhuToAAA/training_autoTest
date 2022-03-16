@@ -19,16 +19,10 @@ export function searchFirstname(keyword) {
     searchF.getSearchInput()
         .clear()
         .type(keyword)
-    //     .then(() => {
-    //         cy.xpath('//table[@class="table table-striped"]//tbody//tr').each((element) => {
-    //             console.log(element.text())
-    //             cy.xpath('//td[1]').contains('Pol').should('be.visible');
-    //         })
-    // })
-    cy.xpath('//table[@class="table table-striped"]//tbody').each((element) => {
-        cy.xpath("//tr//td")
-        .then(() =>{
-            console.log(element)
-        })
+        .then(() => {
+            cy.wait(2000)
+            cy.xpath('//table[@class="table table-striped"]//tbody//tr').each((element) => {
+                cy.wrap(element).xpath('./td[1]').first().should('contains.text', 'Pol');
+            })
     })
 }
