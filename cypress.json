@@ -5,5 +5,7 @@
       "baseUrl": "https://www.globalsqa.com/angularJs-protractor/WebTable/"
     },
     "$schema": "https://on.cypress.io/cypress.schema.json",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
   }

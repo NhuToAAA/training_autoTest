@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import DateSpickerPage, { randomDate, expectDate } from '../../support/PageObject/DateSpicker/Date'
+import DatePickerPage, { randomDate, expectDate } from '../../support/PageObject/Datepicker/Date'
 
 require('cypress-xpath')
 describe('Testing Table with Cypress', () => {
@@ -14,7 +14,7 @@ describe('Testing Table with Cypress', () => {
     cy.visit('https://demo.guru99.com/test/')
   })
   it('Verify that user able to select date', () => {
-    var DateI = new DateSpickerPage();
+    var DateI = new DatePickerPage();
     var dateA = testdata[0];
     var dateString = dateA.actualDate;
     var dateInputA = dateString.slice(0, 10) + 'T' + dateString.slice(11, 16)
@@ -24,7 +24,7 @@ describe('Testing Table with Cypress', () => {
   })
   it('Verify that user able to select random date', () => {
     var dateA = testdata[0];
-    var DateI = new DateSpickerPage();
+    var DateI = new DatePickerPage();
 
     var dateString1 = dateA.startDate;
     var dateObject1 = new Date(dateString1);

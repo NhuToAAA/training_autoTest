@@ -36,7 +36,14 @@ export function searchI(keyword) {
         .type(keyword);
         // click icon search
         searchI.getSummitButton()
-        .click();
-        cy.wait(5000);
+        .click().wait(5000)
+        // cy.get('.content_bgr').should('contain.text', 'Selenium');
+        // cy.xpath('//li[1]/div[@class="post_item"]/h3/a').then(($el) => {
+        //     const text = $el.text(); 
+        //     console.log("linh",text)
+        //     // var dateTest = text.slice(19,29) + text.slice(47,53)
+        //     // // Do the assertion here
+        //     //  expect(dateTest).to.eq(dateGetFromFile);
+        //   });
     })
 }

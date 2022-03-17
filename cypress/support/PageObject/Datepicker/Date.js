@@ -1,6 +1,6 @@
 require('cypress-xpath')
 
-class DateSpickerPage {
+class DatePickerPage {
     // get input datespicker
     getInputDateSpicker() {
         return cy.xpath('//input[@name="bdaytime"]');
@@ -14,7 +14,7 @@ class DateSpickerPage {
         return cy.xpath('/html/body/div[2]');
     }
 }
-export default DateSpickerPage;
+export default DatePickerPage;
 
 /**
  * function random from start date to end date
@@ -30,7 +30,7 @@ export function randomDate(start, end) {
  * @param {*} dateGetFromFile 
  */
 export function expectDate (dateGetFromFile) {
-    var date = new DateSpickerPage();
+    var date = new DatePickerPage();
     date.getTextResult().then(($el) => {
         const text = $el.text(); 
         var dateTest = text.slice(19,29) + text.slice(47,53)
